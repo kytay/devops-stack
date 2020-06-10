@@ -1,0 +1,16 @@
+{
+  "name": "devops-stack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "setup": "node setup.js"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "handlebars": "^4.7.6",
+    "js-yaml": "^3.14.0"
+  }
+}

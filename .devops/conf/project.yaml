@@ -1,0 +1,11 @@
+project:
+    key: someKey
+    git:
+        url: https://github.com/kytay/devops-stack.git
+        username: someUser
+        token: someToken
+    sonar:
+        url: https://sonarqube/
+        username: someUser
+        token: someToken
+    
