@@ -1,3 +1,4 @@
 **/node_modules
 **/tpl.out/*
 **/package-lock.json
+/.project
