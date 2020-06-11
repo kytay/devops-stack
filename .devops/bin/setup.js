@@ -1,12 +1,51 @@
-const HANDLERBARS = require('handlebars');
-const YAML = require('js-yaml');
+// Core Libraries
 const FS = require('fs');
 const PATH = require('path');
+const HTTP = require('http');
+const QUERYSTRING = require('querystring');
+
+// Additional Libraries
+const HANDLERBARS = require('handlebars');
+const YAML = require('js-yaml');
 
 const TEMPLATE_RELATIVE_DIR = '../tpl';
 const OUTPUT_RELATIVE_DIR = '../output';
-
 const HANDLERBARS_TEMPLATE_EXTENSION = '.handlebars';
+
+
+function generateScanToken(globalProperties, projectProperties) {
+
+    let postData = QUERYSTRING.stringify({
+        name: projectProperties.project.sonar.projectKey + "_TOKEN"
+    });
+
+    let generateScanTokenReq = HTTP.request({
+        protocol: globalProperties.sonar.request.protocol,
+        host: globalProperties.global.sonar.request.host,
+        port: globalProperties.global.sonar.request.port,
+        method: 'POST',
+        path: globalProperties.global.sonar.request.generateUserTokenPath,
+        headers: {
+            auth: globalProperties.global.sonar.request.apiToken,
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Content-Length': Buffer.byteLength(postData)
+        }
+    }, (res) => {
+
+    });
+}
+
+function generateSonarGlobalProperties() {
+
+}
+
+function generateNewSonarPropertiesIfNotExist() {
+    //FS.readFileSync('../../sonar-project.properties');
+}
+
+function bootstrapDevOps() {
+
+}
 
 try {
 

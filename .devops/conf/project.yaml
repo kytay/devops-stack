@@ -1,4 +1,4 @@
-version: 1.0
+projectConfigVersion: 1.0
 project:
     key: someKey
     git:
@@ -6,7 +6,9 @@ project:
         username: someUser
         token: someToken
     sonar:
-        url: https://sonarqube/
+        projectKey: someProjectKey
+        # default global exclusions = .devops/**, please add more below (comma-separated)
+        exclusions: 
         username: someUser
-        token: someToken
+        token: noToken
     

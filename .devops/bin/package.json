@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "setup": "node setup.js"
+    "setup": "node setup.js",
+    "sonarscan": "docker run -it -v \"$(pwd)/../../:/usr/src\" -v \"$(pwd)/../output/sonar-scanner.properties:/opt/sonar-scanner/conf/sonar-scanner.properties\" sonarsource/sonar-scanner-cli -X"
   },
   "author": "",
   "license": "Apache-2.0",

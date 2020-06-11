@@ -1,1 +1,56 @@
-sonar.projectKey={{project.key}}
+# SONAR PROJECT SPECIFIC
+
+sonar.projectKey={{project.sonar.projectKey}}
+sonar.scm.provider={{global.sonar.scanner.scm_provider}}
+sonar.sourceEncoding={{global.sonar.scanner.sourceEncoding}}
+sonar.exclusions={{global.sonar.scanner.exclusions}}{{#if project.sonar.exclusions}}, {{project.sonar.exclusions}}{{/if}}
+
+# SONAR AUTHENTICATION
+
+sonar.login={{project.sonar.token}}
+sonar.password=
+
+# ==========================
+# Plugin::Gitlab
+# ==========================
+
+# GitLab url
+sonar.gitlab.url=
+# Token of the user who can make reports on the project, either global or per project
+sonar.gitlab.user_token=
+# Project ID in GitLab or internal id or namespace + name or namespace + path or url http or ssh url or url or web
+sonar.gitlab.project_id=
+# Branch name or reference of the commit
+sonar.gitlab.ref_name=$SONAR_PR_BRANCH
+
+
+# ==========================
+# Plugin::PullRequest
+# ==========================
+
+# Unique identifier of your Pull Request. Must correspond to the key of the Pull Request in your ALM.
+sonar.pullrequest.key=$SONAR_PR_KEY
+# The name of the branch that contains the changes to be merged. Required
+sonar.pullrequest.branch=$SONAR_PR_BRANCH
+# The branch into which the Pull Request will be merged. Default: master
+sonar.pullrequest.base=$SONAR_PR_MAIN
+
+# ==========================
+# Plugin::Branch
+# ==========================
+
+# A branch is created when the sonar.branch.name parameter is passed during analysis.
+sonar.branch.name=$SONAR_BRANCH_NAME
+
+# ==========================
+# Analyzer::Javascript::Eslint
+# ==========================
+
+# Comma-delimited list of paths to JSON ESLint reports (use -f json ESLint option)
+sonar.eslint.reportPaths=/tmp/eslint-report.json
+
+# ==========================
+# Analyzer::Javascript::Stylelint
+# ==========================
+
+sonar.css.stylelint.reportPaths=/tmp/stylelint-report.json

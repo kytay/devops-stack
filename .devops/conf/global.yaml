@@ -1,0 +1,16 @@
+global:
+    # global configuration version
+    globalConfigVersion: 1.0
+    compatibleMinimumProjectConfigVersion: 1.0
+    sonar:
+        request:
+            protocol: http
+            host: localhost
+            port: 9000
+            apiToken: someToken
+            generateUserTokenPath: /api/user_tokens/generate
+        scanner:
+            ws_timeout: 60
+            sourceEncoding: UTF-8
+            exclusions: .devops/**
+            scm_provider: git
