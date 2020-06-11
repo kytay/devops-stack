@@ -1,4 +1,6 @@
+.devops/output
 **/node_modules
-**/tpl.out/*
 **/package-lock.json
 /.project
+/.scannerwork
+/.sonar
