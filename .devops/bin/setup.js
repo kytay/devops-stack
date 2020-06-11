@@ -26,7 +26,7 @@ function generateScanToken(globalProperties, projectProperties) {
         method: 'POST',
         path: globalProperties.global.sonar.request.generateUserTokenPath,
         headers: {
-            auth: globalProperties.global.sonar.request.apiToken,
+            auth: globalProperties.global.sonar.request.apiToken + ":",
             'Content-Type': 'application/x-www-form-urlencoded',
             'Content-Length': Buffer.byteLength(postData)
         }

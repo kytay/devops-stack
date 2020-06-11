@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "setup": "node setup.js",
-    "sonarscan": "docker run -it -v \"$(pwd)/../../:/usr/src\" -v \"$(pwd)/../output/sonar-scanner.properties:/opt/sonar-scanner/conf/sonar-scanner.properties\" sonarsource/sonar-scanner-cli -X"
+    "sonarscan": "docker run --rm -it -v \"$(pwd)/../../:/usr/src\" -v \"$(pwd)/../output/sonar-scanner.properties:/opt/sonar-scanner/conf/sonar-scanner.properties\" sonarsource/sonar-scanner-cli bash -c \"sonar-scanner -Dfile.encoding=UTF-8 -Dsun.jnu.encoding=UTF-8\"",
+    "gitpush": "git add \"$(pwd)/../../sonar-project.properties\" && git commit -m \"Some text\" && git push origin && echo \"Commited and pushed - sonar-project.properties for sonarqube scan\""
   },
   "author": "",
   "license": "Apache-2.0",
